@@ -1,0 +1,12 @@
+{
+  "name": "z-store-bot",
+  "version": "1.0.0",
+  "description": "Bot para Z's Store",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  }
+}
