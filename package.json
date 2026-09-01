@@ -1,12 +1,13 @@
 {
   "name": "z-store-bot",
   "version": "1.0.0",
-  "description": "Bot para Z's Store",
+  "description": "Bot para Z's Store com gerador de pagamentos",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "discord.js": "^14.14.1"
+    "discord.js": "^14.14.1",
+    "axios": "^1.6.8"
   }
 }
