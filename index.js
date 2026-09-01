@@ -1,5 +1,15 @@
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
-const axios = require('axios');
+const http = require('http');
+
+// Cria um mini servidor web para o Render não derrubar o bot
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Z\'s Store Bot esta online!\n');
+});
+
+server.listen(process.env.PORT || 3000, () => {
+    console.log('Servidor web interno rodando.');
+});
 
 const client = new Client({
     intents: [
@@ -13,16 +23,13 @@ client.once('ready', () => {
     console.log(`Bot online e pronto para a Z's Store: ${client.user.tag}!`);
 });
 
-// Exemplo de comando para gerar assinatura/pagamento
 client.on('messageCreate', async message => {
     if (message.author.bot) return;
 
-    // Comando !comprar <produto>
     if (message.content.startsWith('!comprar')) {
         const args = message.content.split(' ');
         const produto = args[1] || 'Assinatura Padrão';
 
-        // Aqui você integrará a chamada à API do Mercado Pago futuramente
         const embed = new EmbedBuilder()
             .setColor('#00FF00')
             .setTitle('🛒 Z\'s Store - Pedido Criado')
