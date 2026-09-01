@@ -1,7 +1,6 @@
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const http = require('http');
 
-// Cria um mini servidor web para o Render não derrubar o bot
 const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Z\'s Store Bot esta online!\n');
